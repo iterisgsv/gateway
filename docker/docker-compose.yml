@@ -15,7 +15,17 @@ proxy:
   links:
    - discovery
    - authentication
+   - transaction
   ports:
    - "8090:8090"
+  environment:
+   - EUREKA_URI=http://discovery:8761/eureka
+transaction:
+  image: iteris/poc-accesstage-transaction
+  links:
+   - discovery
+   - authentication
+  ports:
+   - "8082:8082"
   environment:
    - EUREKA_URI=http://discovery:8761/eureka
