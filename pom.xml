@@ -8,6 +8,7 @@
 	<packaging>pom</packaging>
 	
 	<modules>
+		<module>poc-accesstage-authentication</module>
         <module>poc-accesstage-eureka-server</module>
     </modules>
 
@@ -26,6 +27,11 @@
                 <version>1.4.3.RELEASE</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -59,6 +65,18 @@
                                 <goal>repackage</goal>
                             </goals>
                             <phase>package</phase>
+                            <configuration>
+                                <requiresUnpack>
+                                    <dependency>
+                                        <groupId>com.netflix.eureka</groupId>
+                                        <artifactId>eureka-core</artifactId>
+                                    </dependency>
+                                    <dependency>
+                                        <groupId>com.netflix.eureka</groupId>
+                                        <artifactId>eureka-client</artifactId>
+                                    </dependency>
+                                </requiresUnpack>
+                            </configuration>
                         </execution>
                     </executions>
                 </plugin>
@@ -68,6 +86,7 @@
 
     <properties>
         <docker.image.prefix>iteris</docker.image.prefix>
+        <lombok.version>1.16.6</lombok.version>
     </properties>
 
 </project>
