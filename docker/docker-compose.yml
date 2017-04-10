@@ -1,0 +1,21 @@
+discovery:
+  image: iteris/poc-accesstage-eureka-server
+  ports:
+   - "8761:8761"
+authentication:
+  image: iteris/poc-accesstage-authentication
+  links:
+   - discovery
+  ports:
+   - "8081:8081"
+  environment:
+   - EUREKA_URI=http://discovery:8761/eureka
+proxy:
+  image: iteris/poc-accesstage-proxy
+  links:
+   - discovery
+   - authentication
+  ports:
+   - "8090:8090"
+  environment:
+   - EUREKA_URI=http://discovery:8761/eureka
