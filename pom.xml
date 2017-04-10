@@ -8,6 +8,7 @@
 	<packaging>pom</packaging>
 	
 	<modules>
+		<module>poc-accesstage-proxy</module>
 		<module>poc-accesstage-authentication</module>
         <module>poc-accesstage-eureka-server</module>
     </modules>
