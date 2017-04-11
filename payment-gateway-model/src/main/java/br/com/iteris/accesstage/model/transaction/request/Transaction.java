@@ -1,6 +1,6 @@
 package br.com.iteris.accesstage.model.transaction.request;
 
-import br.com.iteris.accesstage.model.CardInfo;
+import br.com.iteris.accesstage.model.card.CardInfo;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
 
 public class Transaction {

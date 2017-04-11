@@ -1,4 +1,4 @@
-package br.com.iteris.accesstage.model;
+package br.com.iteris.accesstage.model.card;
 
 import br.com.iteris.accesstage.model.primitives.CardNumber;
 import br.com.iteris.accesstage.model.primitives.SecurityCode;

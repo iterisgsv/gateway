@@ -17,4 +17,16 @@ public class ReturnStatus {
     }
 
     public ReturnStatus() { }
+
+    public static ReturnStatus ok() {
+        ReturnCode code = ReturnCode.OK;
+        Message message = new Message("Success");
+        return new ReturnStatus(code, message);
+    }
+
+    public static ReturnStatus unauthorized() {
+        ReturnCode code = ReturnCode.UNAUTHORIZED;
+        Message message = new Message("Unauthorized");
+        return new ReturnStatus(code, message);
+    }
 }

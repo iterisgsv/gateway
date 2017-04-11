@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum ReturnCode {
     OK("00"),
+    UNAUTHORIZED("01"),
     NOK("99");
 
     private final String code;

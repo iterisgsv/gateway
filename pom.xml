@@ -96,6 +96,8 @@
         <docker.image.prefix>iteris</docker.image.prefix>
         <lombok.version>1.16.6</lombok.version>
         <java.version>1.8</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
     </properties>
 
 </project>
