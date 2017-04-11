@@ -3,16 +3,16 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>br.com.iteris.accesstage</groupId>
-    <artifactId>poc-accesstage</artifactId>
+    <artifactId>payment-gateway</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	
 	<modules>
-        <module>poc-accesstage-eureka-server</module>
-        <module>poc-accesstage-proxy</module>
-        <module>poc-accesstage-authentication</module>
-        <module>poc-accesstage-transaction</module>
-        <module>poc-accesstage-model</module>
+        <module>payment-gateway-discovery-server</module>
+        <module>payment-gateway-proxy</module>
+        <module>payment-gateway-authentication</module>
+        <module>payment-gateway-transaction</module>
+        <module>payment-gateway-model</module>
     </modules>
 
     <dependencyManagement>
@@ -38,7 +38,7 @@
             </dependency>
             <dependency>
                 <groupId>br.com.iteris.accesstage</groupId>
-                <artifactId>poc-accesstage-model</artifactId>
+                <artifactId>payment-gateway-model</artifactId>
                 <version>${project.version}</version>
             </dependency>
         </dependencies>

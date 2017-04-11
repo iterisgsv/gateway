@@ -16,7 +16,7 @@ import br.com.iteris.accesstage.model.Greeter;
 import br.com.iteris.accesstage.model.TransactionResponse;
 
 @SpringBootApplication
-@RibbonClient(name = "say-hello", configuration = AuthenticationConfiguration.class)
+@RibbonClient(name = "auth", configuration = AuthenticationConfiguration.class)
 @EnableDiscoveryClient
 @RestController
 public class Application {

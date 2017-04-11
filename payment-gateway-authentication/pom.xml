@@ -3,29 +3,33 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <artifactId>poc-accesstage</artifactId>
+        <artifactId>payment-gateway</artifactId>
         <groupId>br.com.iteris.accesstage</groupId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <artifactId>poc-accesstage-transaction</artifactId>
+    <artifactId>payment-gateway-authentication</artifactId>
 	<packaging>jar</packaging>
 
     <dependencies>
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-ribbon</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-rest</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-eureka</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-hystrix</artifactId>
         </dependency>
         <dependency>
             <groupId>br.com.iteris.accesstage</groupId>
-            <artifactId>poc-accesstage-model</artifactId>
+            <artifactId>payment-gateway-model</artifactId>
         </dependency>
     </dependencies>
 
@@ -38,4 +42,5 @@
             </plugin>
         </plugins>
     </build>
+
 </project>
