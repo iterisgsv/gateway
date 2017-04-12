@@ -1,9 +1,9 @@
 discovery:
-  image: iteris/poc-accesstage-eureka-server
+  image: iteris/payment-gateway-discovery-server
   ports:
    - "8761:8761"
 authentication:
-  image: iteris/poc-accesstage-authentication
+  image: iteris/payment-gateway-authentication
   links:
    - discovery
   ports:
@@ -11,7 +11,7 @@ authentication:
   environment:
    - EUREKA_URI=http://discovery:8761/eureka
 proxy:
-  image: iteris/poc-accesstage-proxy
+  image: iteris/payment-gateway-proxy
   links:
    - discovery
    - authentication
@@ -21,7 +21,7 @@ proxy:
   environment:
    - EUREKA_URI=http://discovery:8761/eureka
 transaction:
-  image: iteris/poc-accesstage-transaction
+  image: iteris/payment-gateway-transaction
   links:
    - discovery
    - authentication
@@ -32,7 +32,7 @@ transaction:
   environment:
    - EUREKA_URI=http://discovery:8761/eureka
 transaction-rede:
-  image: iteris/poc-accesstage-transaction-rede
+  image: iteris/payment-gateway-transaction-rede
   links:
    - discovery
   ports:
@@ -40,7 +40,7 @@ transaction-rede:
   environment:
    - EUREKA_URI=http://discovery:8761/eureka
 transaction-cielo:
-  image: iteris/poc-accesstage-transaction-cielo
+  image: iteris/payment-gateway-transaction-cielo
   links:
    - discovery
   ports:
