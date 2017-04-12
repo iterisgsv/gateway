@@ -25,7 +25,16 @@ transaction:
   links:
    - discovery
    - authentication
+   - transaction-rede
   ports:
    - "8082:8082"
+  environment:
+   - EUREKA_URI=http://discovery:8761/eureka
+transaction-rede:
+  image: iteris/poc-accesstage-transaction-rede
+  links:
+   - discovery
+  ports:
+   - "8083:8083"
   environment:
    - EUREKA_URI=http://discovery:8761/eureka
