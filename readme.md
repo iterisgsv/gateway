@@ -9,6 +9,8 @@ Nesta proposta, temos os seguintes módulos:
 1. **payment-gateway-proxy** - Este módulo foi criado para gerar uma imagem Docker para subir um servidor de proxy usando a biblioteca Netflix Zuul. Este módulo se conecta ao servidor Eureka para descobrir os microserviços a ser proxiados.
 1. **payment-gateway-authentication** - Módulo que consiste em um microserviço de autenticação em uma adquirente. Esse módulo é usado para gerar uma imagem Docker que sobe um servidor que no momento expõe um serviço REST
 1. **payment-gateway-transaction** - Módulo que consiste em um microserviço de criação de uma nova transação. Esse módulo é usado para gerar uma imagem Docker que sobe um servidor que no momento expõe um serviço REST
+1. **payment-gateway-transaction-rede** - Módulo que consiste em um microserviço de teste para autorizar uma transação no adquirente Rede. Esse módulo gera uma imagem Docker que expõe um microserviço a ser chamado pelo módulo **payment-gateway-transaction**.
+1. **payment-gateway-transaction-cielo** - Módulo que consiste em um microserviço de teste para autorizar uma transação no adquirente Cielo. Esse módulo gera uma imagem Docker que expõe um microserviço a ser chamado pelo módulo **payment-gateway-transaction**.
 
 ## Tecnologias usadas
 
@@ -28,7 +30,9 @@ Para construir o projeto, execute o seguinte comando na pasta raiz do projeto
 mvn install
 ```
 
-Para construir uma imagem Docker, execute o comando abaixo:
+O comando ```buildDockerImages.bat``` (para Windows) incluído no projeto realiza a construção do mesmo e constrói todas as imagens Docker de uma só vez. Caso esteja usando um sistema baseado em Unix, utilize o comando ```buildDockerImages.sh```.
+
+Para construir uma imagem Docker específica, execute o comando abaixo dentro da pasta do módulo desejado:
 
 ```
 mvn docker:build
