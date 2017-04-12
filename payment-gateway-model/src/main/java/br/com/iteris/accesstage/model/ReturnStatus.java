@@ -1,6 +1,8 @@
 package br.com.iteris.accesstage.model;
 
 import br.com.iteris.accesstage.model.primitives.Message;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
 
 public class ReturnStatus {
@@ -11,27 +13,33 @@ public class ReturnStatus {
     @JsonUnwrapped
     private Message returnMessage;
 
-    public ReturnStatus(ReturnCode returnCode, Message returnMessage) {
+    @JsonCreator
+    public ReturnStatus(@JsonProperty("returnCode") ReturnCode returnCode, @JsonProperty("returnMessage") String returnMessage) {
         this.returnCode = returnCode;
-        this.returnMessage = returnMessage;
+        this.returnMessage = new Message(returnMessage);
     }
 
-    public ReturnStatus() { }
-
     public static ReturnStatus nok() {
-        Message message = new Message("ERROR");
-        return new ReturnStatus(ReturnCode.NOK, message);
+        return new ReturnStatus(ReturnCode.NOK, "ERROR");
     }
 
     public static ReturnStatus ok() {
-        ReturnCode code = ReturnCode.OK;
-        Message message = new Message("Success");
-        return new ReturnStatus(code, message);
+        return new ReturnStatus(ReturnCode.OK, "Success");
     }
 
     public static ReturnStatus unauthorized() {
-        ReturnCode code = ReturnCode.UNAUTHORIZED;
-        Message message = new Message("Unauthorized");
-        return new ReturnStatus(code, message);
+        return new ReturnStatus(ReturnCode.UNAUTHORIZED, "Unauthorized");
+    }
+
+    public boolean is(ReturnCode returnCode) {
+        return this.returnCode.equals(returnCode);
+    }
+
+    @Override
+    public String toString() {
+        return "{" +
+            "returnCode=" + returnCode +
+            ", returnMessage=" + returnMessage +
+            '}';
     }
 }

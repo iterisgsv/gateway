@@ -1,14 +1,19 @@
 package br.com.iteris.accesstage.transaction.executors;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
-import br.com.iteris.accesstage.model.ReturnStatus;
 import br.com.iteris.accesstage.model.authentication.Authentication;
 import br.com.iteris.accesstage.model.authentication.AuthenticationType;
-import br.com.iteris.accesstage.model.transaction.request.TransactionRequest;
 
 @Service
-public class RedeTransactionExecutor implements TransactionExecutor {
+public class RedeTransactionExecutor extends AbstractTransactionExecutor {
+
+    @Autowired
+    public RedeTransactionExecutor(RestTemplate restTemplate) {
+        super(restTemplate);
+    }
 
     @Override
     public boolean accepts(Authentication authentication) {
@@ -16,7 +21,7 @@ public class RedeTransactionExecutor implements TransactionExecutor {
     }
 
     @Override
-    public ReturnStatus perform(TransactionRequest request, Authentication authentication) {
-        return ReturnStatus.nok();
+    public String getUrl() {
+        return "http://transaction-rede/";
     }
 }

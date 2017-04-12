@@ -9,7 +9,7 @@ public class AuthenticationInfo {
     private AuthenticationType authenticationType;
 
     @JsonUnwrapped
-    private Token token;
+    Token token;
 
     public AuthenticationInfo(AuthenticationType authenticationType, Token token) {
         this.authenticationType = authenticationType;

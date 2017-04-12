@@ -20,6 +20,7 @@ public class TransactionController {
 
     @RequestMapping(value = "/", method = RequestMethod.POST)
     public TransactionResponse create(@RequestBody TransactionRequest request) {
+        System.out.println("Received new transaction request");
         return transactionService.createTransaction(request);
     }
 }

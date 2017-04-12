@@ -1,14 +1,19 @@
 package br.com.iteris.accesstage.transaction.executors;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
-import br.com.iteris.accesstage.model.ReturnStatus;
 import br.com.iteris.accesstage.model.authentication.Authentication;
 import br.com.iteris.accesstage.model.authentication.AuthenticationType;
-import br.com.iteris.accesstage.model.transaction.request.TransactionRequest;
 
 @Service
-public class CieloTransactionExecutor implements TransactionExecutor {
+public class CieloTransactionExecutor extends AbstractTransactionExecutor {
+
+    @Autowired
+    public CieloTransactionExecutor(RestTemplate restTemplate) {
+        super(restTemplate);
+    }
 
     @Override
     public boolean accepts(Authentication authentication) {
@@ -16,7 +21,7 @@ public class CieloTransactionExecutor implements TransactionExecutor {
     }
 
     @Override
-    public ReturnStatus perform(TransactionRequest request, Authentication authentication) {
-        return ReturnStatus.nok();
+    public String getUrl() {
+        return "http://transaction-cielo/";
     }
 }
