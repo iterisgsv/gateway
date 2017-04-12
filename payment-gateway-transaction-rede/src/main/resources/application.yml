@@ -15,4 +15,4 @@ eureka:
       default: ${APPLICATION_DOMAIN:${DOMAIN:defaultZone}}
 spring:
   application:
-    name: authentication
+    name: transaction-rede
