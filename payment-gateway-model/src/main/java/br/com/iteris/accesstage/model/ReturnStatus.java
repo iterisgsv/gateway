@@ -1,5 +1,9 @@
 package br.com.iteris.accesstage.model;
 
+import javax.persistence.Convert;
+import javax.persistence.Embedded;
+
+import br.com.iteris.accesstage.model.converter.ReturnCodeConverter;
 import br.com.iteris.accesstage.model.primitives.Message;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -8,10 +12,14 @@ import com.fasterxml.jackson.annotation.JsonUnwrapped;
 public class ReturnStatus {
 
     @JsonUnwrapped
+    @Convert(converter = ReturnCodeConverter.class)
     private ReturnCode returnCode;
 
     @JsonUnwrapped
+    @Embedded
     private Message returnMessage;
+
+    public ReturnStatus() { }
 
     @JsonCreator
     public ReturnStatus(@JsonProperty("returnCode") ReturnCode returnCode, @JsonProperty("returnMessage") String returnMessage) {

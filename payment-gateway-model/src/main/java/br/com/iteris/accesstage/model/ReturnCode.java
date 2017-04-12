@@ -1,5 +1,8 @@
 package br.com.iteris.accesstage.model;
 
+import java.util.Optional;
+import java.util.stream.Stream;
+
 import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum ReturnCode {
@@ -16,5 +19,17 @@ public enum ReturnCode {
     @JsonValue
     public String representation() {
         return code;
+    }
+
+    public static ReturnCode fromRepresentation(String representation) {
+        Optional<ReturnCode> first = Stream.of(values())
+            .filter(code -> code.representation().equalsIgnoreCase(representation))
+            .findFirst();
+
+        if (first.isPresent()) {
+            return first.get();
+        }
+
+        return null;
     }
 }

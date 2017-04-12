@@ -1,5 +1,7 @@
 package br.com.iteris.accesstage.model.transaction.response;
 
+import javax.persistence.Embedded;
+
 import br.com.iteris.accesstage.model.ReturnStatus;
 import br.com.iteris.accesstage.model.primitives.Amount;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
@@ -7,9 +9,11 @@ import com.fasterxml.jackson.annotation.JsonUnwrapped;
 public class TransactionResponse {
 
     @JsonUnwrapped
+    @Embedded
     private ReturnStatus returnStatus;
 
     @JsonUnwrapped
+    @Embedded
     private TransactionResponseInfo transaction;
 
     public TransactionResponse(ReturnStatus returnStatus, TransactionResponseInfo transaction) {

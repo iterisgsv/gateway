@@ -1,5 +1,7 @@
 package br.com.iteris.accesstage.model.transaction.response;
 
+import javax.persistence.Embedded;
+
 import br.com.iteris.accesstage.model.primitives.Amount;
 import br.com.iteris.accesstage.model.primitives.DateTime;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -11,9 +13,11 @@ import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
 public class TransactionResponseInfo {
 
     @JsonUnwrapped
+    @Embedded
     private TransactionInfo info;
 
     @JsonUnwrapped
+    @Embedded
     private DateTime transactionDate;
 
     public TransactionResponseInfo(TransactionInfo info, DateTime transactionDate) {

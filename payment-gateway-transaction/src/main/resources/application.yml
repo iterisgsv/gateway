@@ -9,6 +9,14 @@ server:
 spring:
   application:
     name: transaction
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQL9Dialect
+    generate-ddl: true
+  datasource:
+    url: jdbc:postgresql://database:5432/postgres
+    username: postgres
+    password: rootpassword
+    driver-class-name: org.postgresql.Driver
 
 eureka:
   client:

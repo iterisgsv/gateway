@@ -13,6 +13,7 @@ import br.com.iteris.accesstage.model.transaction.request.TransactionRequest;
 import br.com.iteris.accesstage.model.transaction.response.TransactionInfo;
 import br.com.iteris.accesstage.model.transaction.response.TransactionResponse;
 import br.com.iteris.accesstage.model.transaction.response.TransactionResponseInfo;
+import br.com.iteris.accesstage.transaction.entity.Transaction;
 import br.com.iteris.accesstage.transaction.executors.TransactionExecutors;
 import br.com.iteris.accesstage.transaction.repository.TransactionRepository;
 
@@ -36,7 +37,8 @@ public class TransactionCreatorService {
         TransactionResponseInfo responseInfo = new TransactionResponseInfo(transactionInfo, new DateTime());
         TransactionResponse response = new TransactionResponse(status, responseInfo);
 
-        transactionRepository.save(response);
+        Transaction transaction = new Transaction(response);
+        transactionRepository.save(transaction);
         System.out.println("Transaction processed successfully");
         return response;
     }

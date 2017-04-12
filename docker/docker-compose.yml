@@ -10,6 +10,13 @@ authentication:
    - "8081:8081"
   environment:
    - EUREKA_URI=http://discovery:8761/eureka
+database:
+  image: postgres
+  container_name: payment-gateway-database
+  ports:
+   - "5432:5432"
+  environment:
+   - POSTGRES_PASSWORD=rootpassword
 proxy:
   image: iteris/payment-gateway-proxy
   links:
@@ -24,6 +31,7 @@ transaction:
   image: iteris/payment-gateway-transaction
   links:
    - discovery
+   - database
    - authentication
    - transaction-rede
    - transaction-cielo
