@@ -1,4 +1,4 @@
-package br.com.iteris.accesstage.authentication.model;
+package br.com.iteris.accesstage.model.authentication;
 
 import br.com.iteris.accesstage.model.ReturnStatus;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
@@ -17,4 +17,8 @@ public class Authentication {
     }
 
     public Authentication() { }
+
+    public boolean is(AuthenticationType authenticationType) {
+        return authentication.is(authenticationType);
+    }
 }

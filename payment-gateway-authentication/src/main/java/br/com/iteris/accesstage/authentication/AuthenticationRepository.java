@@ -2,7 +2,7 @@ package br.com.iteris.accesstage.authentication;
 
 import org.springframework.stereotype.Repository;
 
-import br.com.iteris.accesstage.authentication.model.AuthenticationInfo;
+import br.com.iteris.accesstage.model.authentication.AuthenticationInfo;
 import br.com.iteris.accesstage.authentication.model.ValidAuthentications;
 import br.com.iteris.accesstage.model.ClientId;
 

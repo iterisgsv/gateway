@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.iteris.accesstage.authentication.model.Authentication;
+import br.com.iteris.accesstage.model.authentication.Authentication;
 import br.com.iteris.accesstage.model.ClientId;
 
 @EnableCircuitBreaker

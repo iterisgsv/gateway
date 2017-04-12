@@ -1,6 +1,7 @@
 package br.com.iteris.accesstage.model.transaction.response;
 
 import br.com.iteris.accesstage.model.ReturnStatus;
+import br.com.iteris.accesstage.model.primitives.Amount;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
 
 public class TransactionResponse {
@@ -17,4 +18,10 @@ public class TransactionResponse {
     }
 
     public TransactionResponse() { }
+
+    public static TransactionResponse error(Amount amount) {
+        ReturnStatus nok = ReturnStatus.nok();
+        TransactionResponseInfo from = TransactionResponseInfo.from(amount);
+        return new TransactionResponse(nok, from);
+    }
 }

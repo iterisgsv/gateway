@@ -9,7 +9,7 @@ public class TransactionInfo {
     private TransactionType transactionType;
 
     @JsonUnwrapped
-    private Amount amount;
+    Amount amount;
 
     public TransactionInfo(TransactionType transactionType, Amount transactionAmount) {
         this.transactionType = transactionType;

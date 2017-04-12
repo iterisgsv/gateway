@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import br.com.iteris.accesstage.model.ClientId;
+import br.com.iteris.accesstage.model.authentication.AuthenticationInfo;
 import br.com.iteris.accesstage.model.primitives.Token;
 
 import static br.com.iteris.accesstage.model.authentication.AuthenticationType.CIELO;

@@ -1,6 +1,5 @@
-package br.com.iteris.accesstage.authentication.model;
+package br.com.iteris.accesstage.model.authentication;
 
-import br.com.iteris.accesstage.model.authentication.AuthenticationType;
 import br.com.iteris.accesstage.model.primitives.Token;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
 
@@ -19,4 +18,7 @@ public class AuthenticationInfo {
 
     public AuthenticationInfo() { }
 
+    public boolean is(AuthenticationType authenticationType) {
+        return this.authenticationType.equals(authenticationType);
+    }
 }

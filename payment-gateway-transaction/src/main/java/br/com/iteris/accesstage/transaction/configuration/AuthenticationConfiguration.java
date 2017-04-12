@@ -1,4 +1,4 @@
-package br.com.iteris.accesstage.transaction;
+package br.com.iteris.accesstage.transaction.configuration;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

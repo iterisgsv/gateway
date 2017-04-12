@@ -1,6 +1,7 @@
 package br.com.iteris.accesstage.model.transaction.request;
 
 import br.com.iteris.accesstage.model.ClientId;
+import br.com.iteris.accesstage.model.primitives.Amount;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
 
@@ -18,5 +19,13 @@ public class TransactionRequest {
     public TransactionRequest(ClientId clientId, Transaction transaction) {
         this.clientId = clientId;
         this.transaction = transaction;
+    }
+
+    public ClientId getClientId() {
+        return clientId;
+    }
+
+    public Amount getAmount() {
+        return transaction.transactionInfo.amount;
     }
 }

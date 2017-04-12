@@ -1,5 +1,6 @@
 package br.com.iteris.accesstage.model.transaction.response;
 
+import br.com.iteris.accesstage.model.primitives.Amount;
 import br.com.iteris.accesstage.model.primitives.DateTime;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -29,4 +30,10 @@ public class TransactionResponseInfo {
     }
 
     public TransactionResponseInfo() { }
+
+    public static TransactionResponseInfo from(Amount amount) {
+        DateTime dateTime = new DateTime();
+        TransactionInfo info = new TransactionInfo(null, amount);
+        return new TransactionResponseInfo(info, dateTime);
+    }
 }

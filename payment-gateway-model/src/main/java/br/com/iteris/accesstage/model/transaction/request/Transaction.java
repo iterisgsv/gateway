@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonUnwrapped;
 public class Transaction {
 
     @JsonUnwrapped
-    private TransactionInfo transactionInfo;
+    TransactionInfo transactionInfo;
 
     @JsonUnwrapped
     private CardInfo cardInfo;

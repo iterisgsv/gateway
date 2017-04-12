@@ -18,6 +18,11 @@ public class ReturnStatus {
 
     public ReturnStatus() { }
 
+    public static ReturnStatus nok() {
+        Message message = new Message("ERROR");
+        return new ReturnStatus(ReturnCode.NOK, message);
+    }
+
     public static ReturnStatus ok() {
         ReturnCode code = ReturnCode.OK;
         Message message = new Message("Success");
