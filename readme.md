@@ -39,3 +39,29 @@ mvn docker:build
 ```
 
 **Observação:** O comando acima executará com suceso apenas nos módulos que geram uma imagem Docker. Por esse motivo, executar esse comando dentro da pasta raiz do projeto ou na pasta do módulo **payment-gateway-model** irá falhar.
+
+## Teste
+
+O microserviço de transaction recebe um json no seguinte formato:
+
+```
+{
+	"affiliation": "",
+	"token": "",
+	"transactionType": "CREDIT|DEBIT",
+	"amount": 0,
+	"cardNumber": "",
+	"securityCode": ""
+}
+```
+
+Os códigos para affiliation e token aceitos pela aplicação são os seguintes:
+
+| Affiliation | Token | Adquirente |
+|---|---|---|
+| 12345 | 1343234123 | Rede |
+| 12346 | 2345244565 | Rede |
+| 12347 | 9876574728 | Rede |
+| 12348 | 2452345213 | Cielo |
+| 12349 | 4325554592 | Cielo |
+| 12350 | 8658473676 | Cielo |
