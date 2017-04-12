@@ -8,7 +8,6 @@ Nesta proposta, temos os seguintes módulos:
 1. **payment-gateway-discovery-server** - Módulo usado como base para criar uma imagem Docker de um servidor Eureka executando na porta padrão 8761.
 1. **payment-gateway-proxy** - Este módulo foi criado para gerar uma imagem Docker para subir um servidor de proxy usando a biblioteca Netflix Zuul. Este módulo se conecta ao servidor Eureka para descobrir os microserviços a ser proxiados.
 1. **payment-gateway-authentication** - Módulo que consiste em um microserviço de autenticação em uma adquirente. Esse módulo é usado para gerar uma imagem Docker que sobe um servidor que no momento expõe um serviço REST
-1. **payment-gateway-authentication-rede** - Módulo que simula uma tentativa de autenticação no adquirente Rede. Usamos esse módulo para gerar uma imagem Docker que sobe um serviço a ser consumido pelo módulo de autenticação
 1. **payment-gateway-transaction** - Módulo que consiste em um microserviço de criação de uma nova transação. Esse módulo é usado para gerar uma imagem Docker que sobe um servidor que no momento expõe um serviço REST
 
 ## Tecnologias usadas

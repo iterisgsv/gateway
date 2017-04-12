@@ -1,6 +1,6 @@
 FROM frolvlad/alpine-oraclejdk8:slim
 VOLUME /tmp
-ADD poc-accesstage-eureka-server.jar app.jar
+ADD payment-gateway-discovery-server.jar app.jar
 RUN sh -c 'touch /app.jar'
 ENV JAVA_OPTS=""
 EXPOSE 8761
