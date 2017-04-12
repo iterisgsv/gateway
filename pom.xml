@@ -13,6 +13,7 @@
         <module>payment-gateway-authentication</module>
         <module>payment-gateway-transaction</module>
 		<module>payment-gateway-transaction-rede</module>
+		<module>payment-gateway-transaction-cielo</module>
         <module>payment-gateway-model</module>
     </modules>
 
