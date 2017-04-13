@@ -6,7 +6,10 @@ Este projeto define uma proposta de arquitetura em microserviços para um gatewa
 
 A proposta consiste em 4 microserviços, descritos abaixo:
 
-1. **Transação** - O microserviço principal, que coordena o acesso aos outros serviços. Esse microserviço se conecta ao microserviço de autenticação e recebe deste um retorno informando se a autenticação foi bensucedida e qual o tipo de autenticação (Rede ou Cielo). Feito isso, ele acessa um dos outros microserviços (transação Rede ou Cielo), dependendo de qual o tipo de autenticação foi recebida, para autorizar a transação no adquirente. Por fim, armazenamos o resultado em uma base PostgreSQL para efeito de log.
+1. **Transação** - O microserviço principal, que coordena o acesso aos outros serviços. Segue o fluxo desse microserviço:
+   1. Primeiramente nos conectamos ao microserviço de autenticação e recebe deste um retorno informando se a autenticação foi bensucedida e qual o tipo de autenticação (Rede ou Cielo). 
+   1. Feito isso, ele acessa um dos outros microserviços (transação Rede ou Cielo), dependendo de qual o tipo de autenticação foi recebida, para autorizar a transação no adquirente
+   1. Por fim, armazenamos o resultado em uma base PostgreSQL para efeito de log.
 1. **Autorização** - Esse microserviço recebe Afiliação e Token e, com base nessas informações, retorna um token válido para autorizar transações na Cielo ou Rede, ou retorna dados de autorização inválida. O mapeamento de dados do cliente e de tokens de autorização é mantido em memória.
 1. **Transação Rede** - Microserviço de autorização de transação na Rede. Esse microserviço simula uma requisição de autorização e retorna simplesmente se a transação foi autorizada ou não.
 1. **Transação Cielo** - Microserviço de autorização de transação na Cielo. Esse microserviço simula uma requisição de autorização e retorna simplesmente se a transação foi autorizada ou não.
