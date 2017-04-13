@@ -1,4 +1,4 @@
-auth:
+services:
   ribbon:
     eureka:
       enabled: true

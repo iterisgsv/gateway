@@ -8,9 +8,9 @@ import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 @EnableZuulProxy
 @EnableDiscoveryClient
 @SpringBootApplication
-public class Application {
+public class ProxyApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(ProxyApplication.class, args);
     }
 }

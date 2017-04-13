@@ -1,4 +1,4 @@
-package br.com.iteris.accesstage.transaction.rede;
+package br.com.iteris.accesstage.transaction.rede.validation;
 
 import java.util.ArrayList;
 import java.util.Collections;

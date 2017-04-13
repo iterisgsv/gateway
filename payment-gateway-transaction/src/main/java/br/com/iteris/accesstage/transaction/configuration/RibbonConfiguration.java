@@ -9,10 +9,14 @@ import com.netflix.loadbalancer.IPing;
 import com.netflix.loadbalancer.IRule;
 import com.netflix.loadbalancer.PingUrl;
 
-public class AuthenticationConfiguration {
+public class RibbonConfiguration {
+
+    private final IClientConfig ribbonClientConfig;
 
     @Autowired
-    IClientConfig ribbonClientConfig;
+    public RibbonConfiguration(IClientConfig ribbonClientConfig) {
+        this.ribbonClientConfig = ribbonClientConfig;
+    }
 
     @Bean
     public IPing ribbonPing(IClientConfig config) {

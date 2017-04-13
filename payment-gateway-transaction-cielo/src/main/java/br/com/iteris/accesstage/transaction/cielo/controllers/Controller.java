@@ -1,4 +1,4 @@
-package br.com.iteris.accesstage.transaction.rede;
+package br.com.iteris.accesstage.transaction.cielo.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestHeader;
@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.iteris.accesstage.model.ReturnStatus;
 import br.com.iteris.accesstage.model.primitives.Token;
 import br.com.iteris.accesstage.model.transaction.request.TransactionRequest;
+import br.com.iteris.accesstage.transaction.cielo.validation.ValidTokens;
 
 @RestController
 public class Controller {

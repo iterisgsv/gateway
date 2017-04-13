@@ -1,4 +1,4 @@
-package br.com.iteris.accesstage.transaction.cielo;
+package br.com.iteris.accesstage.transaction.cielo.validation;
 
 import java.util.ArrayList;
 import java.util.Collections;

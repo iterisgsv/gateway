@@ -1,4 +1,4 @@
-package br.com.iteris.accesstage.authentication.model;
+package br.com.iteris.accesstage.authentication.validation;
 
 import java.util.HashMap;
 import java.util.Map;

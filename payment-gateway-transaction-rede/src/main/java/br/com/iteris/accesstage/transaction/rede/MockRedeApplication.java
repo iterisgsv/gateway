@@ -8,9 +8,9 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 @EnableCircuitBreaker
 @EnableDiscoveryClient
 @SpringBootApplication(scanBasePackages = "br.com.iteris.accesstage.transaction.rede")
-public class Application {
+public class MockRedeApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(MockRedeApplication.class, args);
     }
 }
