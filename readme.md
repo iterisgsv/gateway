@@ -1,16 +1,26 @@
 # Gateway de pagamentos
 
 Este projeto define uma proposta de arquitetura em microserviços para um gateway de pagamentos.
- 
-Nesta proposta, temos os seguintes módulos:
+
+## Descrição
+
+A proposta consiste em 4 microserviços, descritos abaixo:
+
+1. **Transação** - O microserviço principal, que coordena o acesso aos outros serviços. Esse microserviço se conecta ao microserviço de autenticação e recebe deste um retorno informando se a autenticação foi bensucedida e qual o tipo de autenticação (Rede ou Cielo). Feito isso, ele acessa um dos outros microserviços (transação Rede ou Cielo), dependendo de qual o tipo de autenticação foi recebida, para autorizar a transação no adquirente. Por fim, armazenamos o resultado em uma base PostgreSQL para efeito de log.
+1. **Autorização** - Esse microserviço recebe Afiliação e Token e, com base nessas informações, retorna um token válido para autorizar transações na Cielo ou Rede, ou retorna dados de autorização inválida. O mapeamento de dados do cliente e de tokens de autorização é mantido em memória.
+1. **Transação Rede** - Microserviço de autorização de transação na Rede. Esse microserviço simula uma requisição de autorização e retorna simplesmente se a transação foi autorizada ou não.
+1. **Transação Cielo** - Microserviço de autorização de transação na Cielo. Esse microserviço simula uma requisição de autorização e retorna simplesmente se a transação foi autorizada ou não.
+
+## Módulos
+O projeto consiste dos seguintes módulos:
 
 1. **payment-gateway-model** - Contém classes de modelagem de dados comuns a outros projetos
 1. **payment-gateway-discovery-server** - Módulo usado como base para criar uma imagem Docker de um servidor Eureka executando na porta padrão 8761.
-1. **payment-gateway-proxy** - Este módulo foi criado para gerar uma imagem Docker para subir um servidor de proxy usando a biblioteca Netflix Zuul. Este módulo se conecta ao servidor Eureka para descobrir os microserviços a ser proxiados.
-1. **payment-gateway-authentication** - Módulo que consiste em um microserviço de autenticação em uma adquirente. Esse módulo é usado para gerar uma imagem Docker que sobe um servidor que no momento expõe um serviço REST
-1. **payment-gateway-transaction** - Módulo que consiste em um microserviço de criação de uma nova transação. Esse módulo é usado para gerar uma imagem Docker que sobe um servidor que no momento expõe um serviço REST
-1. **payment-gateway-transaction-rede** - Módulo que consiste em um microserviço de teste para autorizar uma transação no adquirente Rede. Esse módulo gera uma imagem Docker que expõe um microserviço a ser chamado pelo módulo **payment-gateway-transaction**.
-1. **payment-gateway-transaction-cielo** - Módulo que consiste em um microserviço de teste para autorizar uma transação no adquirente Cielo. Esse módulo gera uma imagem Docker que expõe um microserviço a ser chamado pelo módulo **payment-gateway-transaction**.
+1. **payment-gateway-proxy** - Este módulo foi criado para gerar uma imagem Docker para subir um servidor de proxy usando a biblioteca Netflix Zuul. Este módulo se conecta ao servidor Eureka para descobrir os microserviços públicos que devem ser expostos, que atualmente inclui apenas o microserviço de transação.
+1. **payment-gateway-authentication** - Módulo referente ao microserviço de autenticação descrito acima. Gera uma imagem Docker.
+1. **payment-gateway-transaction** - Módulo referente ao microserviço de transação descrito acima. Gera uma imagem Docker.
+1. **payment-gateway-transaction-rede** - Módulo referente ao microserviço de simulação de autorização de transações na Rede, descrito acima. Gera uma imagem Docker.
+1. **payment-gateway-transaction-cielo** - Módulo referente ao microserviço de simulação de autorização de transações na Cielo, descrito acima. Gera uma imagem Docker.
 
 ## Tecnologias usadas
 
