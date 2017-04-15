@@ -51,7 +51,20 @@ Para construir uma imagem Docker específica, execute o comando abaixo dentro da
 mvn docker:build
 ```
 
-**Observação:** O comando acima executará com suceso apenas nos módulos que geram uma imagem Docker. Por esse motivo, executar esse comando dentro da pasta raiz do projeto ou na pasta do módulo **payment-gateway-model** irá falhar.
+**Observação:** O comando acima executará com sucesso apenas nos módulos que geram uma imagem Docker. Por esse motivo, executar esse comando dentro da pasta raiz do projeto ou na pasta do módulo **payment-gateway-model** irá falhar.
+
+### Kubernetes
+
+Na pasta kubernetes do módulo principal, existem alguns arquivos de configuração usados para subir todos os módulos da aplicação em um cluster Kubernetes. Todos os arquivos contém a definição de um serviço e de uma implantação (deployment).
+
+Para subir todos os módulos da aplicação, basta rodar o comando ```kubectl create``` apontando para essa pasta.
+
+### Docker Compose
+A pasta docker do módulo principal contém um arquivo de configuração docker-compose usado para subir todos os módulos da aplicação em containeres do Docker.
+
+Para subir a aplicação usando esse arquivo, basta executar o comando ```docker-compose up``` dentro da pasta ```docker```.
+ 
+Para parar todos os módulos, basta executar o comando ```docker-compose stop``` nessa mesma pasta.
 
 ## Teste
 

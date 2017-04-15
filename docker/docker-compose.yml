@@ -1,9 +1,9 @@
 discovery:
-  image: iteris/payment-gateway-discovery-server
+  image: iterisgsv/payment-gateway-discovery-server
   ports:
    - "8761:8761"
 authentication:
-  image: iteris/payment-gateway-authentication
+  image: iterisgsv/payment-gateway-authentication
   links:
    - discovery
   ports:
@@ -18,7 +18,7 @@ database:
   environment:
    - POSTGRES_PASSWORD=rootpassword
 proxy:
-  image: iteris/payment-gateway-proxy
+  image: iterisgsv/payment-gateway-proxy
   links:
    - discovery
    - authentication
@@ -28,7 +28,7 @@ proxy:
   environment:
    - EUREKA_URI=http://discovery:8761/eureka
 transaction:
-  image: iteris/payment-gateway-transaction
+  image: iterisgsv/payment-gateway-transaction
   links:
    - discovery
    - database
@@ -40,7 +40,7 @@ transaction:
   environment:
    - EUREKA_URI=http://discovery:8761/eureka
 transaction-rede:
-  image: iteris/payment-gateway-transaction-rede
+  image: iterisgsv/payment-gateway-transaction-rede
   links:
    - discovery
   ports:
@@ -48,7 +48,7 @@ transaction-rede:
   environment:
    - EUREKA_URI=http://discovery:8761/eureka
 transaction-cielo:
-  image: iteris/payment-gateway-transaction-cielo
+  image: iterisgsv/payment-gateway-transaction-cielo
   links:
    - discovery
   ports:
