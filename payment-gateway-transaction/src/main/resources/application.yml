@@ -1,0 +1,25 @@
+services:
+  ribbon:
+    eureka:
+      enabled: true
+
+server:
+  port: 8082
+
+spring:
+  application:
+    name: transaction
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQL9Dialect
+    generate-ddl: true
+  datasource:
+    url: jdbc:postgresql://database:5432/postgres
+    username: postgres
+    password: rootpassword
+    driver-class-name: org.postgresql.Driver
+
+eureka:
+  client:
+    registryFetchIntervalSeconds: 5
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}

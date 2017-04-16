@@ -1,0 +1,46 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: transaction-rede
+  labels:
+    app: payment-gateway
+    role: transaction-rede
+    tier: backend
+spec:
+  ports:
+  - port: 8083
+    targetPort: 8083
+  selector:
+    app: payment-gateway
+    role: transaction-rede
+    tier: backend
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: transaction-rede
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: payment-gateway
+        role: transaction-rede
+        tier: backend
+    spec:
+      containers:
+      - name: master
+        image: iterisgsv/payment-gateway-transaction-rede
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+        env:
+        - name: GET_HOSTS_FROM
+          value: dns
+        - name: EUREKA_INSTANCE_HOSTNAME
+          value: transaction-rede
+        - name: EUREKA_URI
+          value: http://discovery-server:8761/eureka
+        ports:
+        - containerPort: 8083
