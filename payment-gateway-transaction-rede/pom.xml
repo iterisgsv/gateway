@@ -5,7 +5,7 @@
     <parent>
         <artifactId>payment-gateway</artifactId>
         <groupId>br.com.iteris.accesstage</groupId>
-        <version>1.0.0</version>
+        <version>1.0.1-SNAPSHOT</version>
     </parent>
     <artifactId>payment-gateway-transaction-rede</artifactId>
 	<packaging>jar</packaging>
