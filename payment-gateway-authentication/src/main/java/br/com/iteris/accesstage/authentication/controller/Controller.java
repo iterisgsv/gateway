@@ -10,6 +10,11 @@ import br.com.iteris.accesstage.authentication.service.AuthenticationService;
 import br.com.iteris.accesstage.model.ClientId;
 import br.com.iteris.accesstage.model.authentication.Authentication;
 
+/**
+ * Classe criada para expor um serviço REST.
+ *
+ * @author iterisgsv
+ */
 @RestController
 public class Controller {
 
@@ -20,8 +25,18 @@ public class Controller {
         this.authenticationService = authenticationService;
     }
 
+    /**
+     * Serviço REST de autenticação. Esse serviço recebe uma combinação de affiliation e token do cliente e retorna um
+     * objeto contendo informações para conexão em um dos adquirentes possíveis (no momento, Rede ou Cielo).
+     *
+     * @param clientId
+     *      Entrada do serviço. Contem affiliation e token
+     * @return
+     *      Retorno do serviço. Contém informações de status da tentativa de autenticação e, em caso de sucesso, os
+     *      dados para autenticação em um cliente.
+     */
     @RequestMapping(value = "/", method = RequestMethod.POST)
-    public Authentication hello(@RequestBody ClientId clientId) {
+    public Authentication authenticate(@RequestBody ClientId clientId) {
         return authenticationService.authenticate(clientId);
     }
 }

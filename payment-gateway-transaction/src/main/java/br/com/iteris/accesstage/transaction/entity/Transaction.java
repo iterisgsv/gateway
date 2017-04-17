@@ -9,8 +9,12 @@ import java.io.Serializable;
 
 import br.com.iteris.accesstage.model.transaction.response.TransactionResponse;
 
+/**
+ * Entidade JPA que armazena os dados da transação recém efetivada.
+ *
+ * @author iterisgsv
+ */
 @Entity
-//@IdClass(PrimaryKey.class)
 public class Transaction implements Serializable {
     private static final long serialVersionUID = 1893503007939053253L;
 
@@ -21,8 +25,17 @@ public class Transaction implements Serializable {
     @Embedded
     private TransactionResponse info;
 
+    /**
+     * Construtor padrão necessário ao JPA.
+     */
     public Transaction() { }
 
+    /**
+     * Construtor usado pela aplicação.
+     *
+     * @param info
+     *      Dados da transação
+     */
     public Transaction(TransactionResponse info) {
         this.info = info;
     }
