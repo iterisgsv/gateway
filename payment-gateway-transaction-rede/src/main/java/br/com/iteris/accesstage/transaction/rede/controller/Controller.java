@@ -11,6 +11,11 @@ import br.com.iteris.accesstage.model.primitives.Token;
 import br.com.iteris.accesstage.model.transaction.request.TransactionRequest;
 import br.com.iteris.accesstage.transaction.rede.validation.ValidTokens;
 
+/**
+ * Expõe um microserviço que simula a efetivação de uma transação nos sistemas da Rede.
+ *
+ * @author iterisgsv
+ */
 @RestController
 public class Controller {
 
@@ -21,6 +26,24 @@ public class Controller {
         this.validTokens = validTokens;
     }
 
+    /**
+     * <p>
+     * Serviço REST que recebe dados de uma transação e um header de autenticação e retorna o status de uma efetivação
+     * simulada de transação no adquirente Rede.
+     * </p>
+     * <p>
+     * O que ocorre na verdade é que o serviço apenas verifica se o header de autenticação possui conteúdo aceitável.
+     * Caso possuir, o serviço retorna sucesso. Caso contrário, o sistema retorna erro de autenticação.
+     * </p>
+     *
+     * @param transactionRequest
+     *      Requisição para efetivação da transação
+     * @param token
+     *      Header de autenticação
+     *
+     * @return Status da efetivação da transação
+     *
+     */
     @RequestMapping(value = "/", method = RequestMethod.POST)
     public ReturnStatus authorize(TransactionRequest transactionRequest, @RequestHeader("Authorization") Token token) {
         if (validTokens.isValid(token)) {

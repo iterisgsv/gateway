@@ -17,6 +17,11 @@ import br.com.iteris.accesstage.transaction.entity.Transaction;
 import br.com.iteris.accesstage.transaction.executors.TransactionExecutors;
 import br.com.iteris.accesstage.transaction.repository.TransactionRepository;
 
+/**
+ * Responsável por criar, efetivar e registrar uma transação.
+ *
+ * @author iterisgsv
+ */
 @Service
 public class TransactionCreatorService {
 
@@ -29,6 +34,16 @@ public class TransactionCreatorService {
         this.transactionRepository = transactionRepository;
     }
 
+    /**
+     * Cria e efetiva uma transação, registrando em banco ao fim do processo.
+     *
+     * @param request
+     *      Dados da transação
+     * @param authentication
+     *      Dados da autenticação
+     *
+     * @return Retorno da efetivação da transação.
+     */
     public TransactionResponse create(TransactionRequest request, Authentication authentication) {
         ReturnStatus status = transactionExecutors.accept(request, authentication);
         System.out.println("Transaction accepted with status " + status.toString());

@@ -10,6 +10,12 @@ import br.com.iteris.accesstage.model.primitives.Token;
 import static br.com.iteris.accesstage.model.authentication.AuthenticationType.CIELO;
 import static br.com.iteris.accesstage.model.authentication.AuthenticationType.REDE;
 
+/**
+ * Armazena em memória os dados de afiliação/token de cliente válidos e quais os respectivos dados de autenticação para
+ * cada um dos ClientIds aceitos.
+ *
+ * @author iterisgsv
+ */
 public class ValidAuthentications {
     private Map<ClientId, AuthenticationInfo> clientIds = new HashMap<>();
 

@@ -7,6 +7,11 @@ import br.com.iteris.accesstage.model.authentication.Authentication;
 import br.com.iteris.accesstage.model.transaction.request.TransactionRequest;
 import br.com.iteris.accesstage.model.transaction.response.TransactionResponse;
 
+/**
+ * Serviço de criação de transação
+ *
+ * @author iterisgsv
+ */
 @Service
 public class TransactionService {
 
@@ -19,6 +24,15 @@ public class TransactionService {
         this.transactionCreatorService = transactionCreatorService;
     }
 
+    /**
+     * Esse método se autentica, visando obter os dados de autenticação em uma adquirente, e registra uma transação,
+     * retornando o resultado do processo.
+     *
+     * @param request
+     *      Dados para registro da transação
+     *
+     * @return Retorno da tentativa de criação da transação
+     */
     public TransactionResponse createTransaction(TransactionRequest request) {
         Authentication authentication = authenticationService.requestAuthentication(request);
         if (authentication == null || authentication.unauthorized()) {
