@@ -8,6 +8,11 @@ import org.springframework.stereotype.Component;
 
 import br.com.iteris.accesstage.model.primitives.Token;
 
+/**
+ * Armazena em memória os tokens de autenticação válidos para esse módulo.
+ *
+ * @author iterisgsv
+ */
 @Component
 public class ValidTokens {
 
@@ -21,6 +26,14 @@ public class ValidTokens {
         tokens = Collections.unmodifiableList(baseList);
     }
 
+    /**
+     * Verifica se o token recebido das camadas superiores é válido ou não.
+     *
+     * @param token
+     *      Token a ser validado.
+     *
+     * @return True caso o token for válido, false caso contário.
+     */
     public boolean isValid(Token token) {
         return tokens.contains(token);
     }

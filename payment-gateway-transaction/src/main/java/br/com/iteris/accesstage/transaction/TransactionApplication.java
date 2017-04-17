@@ -11,6 +11,18 @@ import org.springframework.web.client.RestTemplate;
 
 import br.com.iteris.accesstage.transaction.configuration.RibbonConfiguration;
 
+/**
+ * <p>
+ * Classe Application usada para subir a aplicação de transação. Essa aplicação expõe um microserviço de registro de
+ * transações que coordena o acesso aos outros microserviços.
+ * </p>
+ *
+ * <p>
+ * Durante a inicialização, esse microserviço se registra automaticamente no servidor de descoberta.
+ * </p>
+ *
+ * @author iterisgsv
+ */
 @SpringBootApplication(scanBasePackages = "br.com.iteris.accesstage.transaction")
 @RibbonClient(name = "services", configuration = RibbonConfiguration.class)
 @EnableDiscoveryClient

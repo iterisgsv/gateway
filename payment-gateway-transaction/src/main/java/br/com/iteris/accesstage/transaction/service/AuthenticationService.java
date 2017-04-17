@@ -8,6 +8,11 @@ import br.com.iteris.accesstage.model.ClientId;
 import br.com.iteris.accesstage.model.authentication.Authentication;
 import br.com.iteris.accesstage.model.transaction.request.TransactionRequest;
 
+/**
+ * Expõe o serviço de autenticação.
+ *
+ * @author iterisgsv
+ */
 @Service
 public class AuthenticationService {
 
@@ -18,6 +23,15 @@ public class AuthenticationService {
         this.restTemplate = restTemplate;
     }
 
+    /**
+     * Conecta-se ao serviço de autenticação passando os dados de cliente recebidos das camadas superiores. Retorna o
+     * resultado da chamada ao serviço de autenticação.
+     *
+     * @param request
+     *      Dados da criação da autenticação
+     *
+     * @return Resultado da chamada ao serviço de autenticação.
+     */
     public Authentication requestAuthentication(TransactionRequest request) {
         System.out.println("Requesting authentication...");
         ClientId clientId = request.getClientId();

@@ -9,6 +9,11 @@ import com.netflix.loadbalancer.IPing;
 import com.netflix.loadbalancer.IRule;
 import com.netflix.loadbalancer.PingUrl;
 
+/**
+ * Classe que contém as configurações do cliente Ribbon usado para conexão aos outros microserviços.
+ *
+ * @author iterisgsv
+ */
 public class RibbonConfiguration {
 
     private final IClientConfig ribbonClientConfig;
